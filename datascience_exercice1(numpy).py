@@ -7,10 +7,22 @@ Created on Sun Sep 25 20:45:07 2022
 
 import numpy as np
 
+# Cette fonction initialisation retourne une matrice aléatoire (m, n+1)
+# Avec une colonne à droite remplie de '1'
 
 def initialisatiion(m, n):
-    mon_tableau = np.empty((m,n), dtype=np.float16)
-    return mon_tableau
+    # m: nombre de lignes
+    # n : nombre de colonnes
+
+    mon_tableau = np.empty((m,n), dtype=np.int16)
+    # mon_tableau : création d'une matrice aléatoire
+    fusion_array = np.ones((m,1))
+    # fusion_array : stock une matrice à 'm' lignes et 1 colonne
+
+    fusion = np.concatenate((mon_tableau, fusion_array), axis=1)
+    # fusion --> stock la fusion horizontale de la matrice 'mon_tableau' et 'fusion_array'
+
+    return fusion
 
 print("--------------------------------------------------------------------")
 print()
